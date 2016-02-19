@@ -1,0 +1,17 @@
+---
+- name: Install Epel repository
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - epel-release
+    - docker-io
+    - python-pip
+
+- name: Install Docker-py
+  pip:
+    name: docker-py
+
+- name: Start Docker
+  service:
+    name: docker
+    state: started

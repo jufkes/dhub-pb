@@ -1,0 +1,22 @@
+---
+- include: install-pkgs-rhel.yml
+  when: ansible_os_family == "RedHat"
+  tags:
+    - install-docker
+
+- include: install-pkgs-ubuntu.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - install-docker
+
+- include: configure-docker.yml
+  tags:
+    - configure-docker
+
+- include: configure-dhub.yml
+  tags:
+    - configure-dhub
+
+- include: run-dhub.yml
+  tags:
+    - run-dhub

@@ -1,0 +1,13 @@
+---
+- name: Create a directory for persistent volumes
+  file:
+    path: "{{ mount_dir }}"
+    state: directory
+
+- name: Create docker registry config
+  template:
+    src: config.yml.j2
+    dest: "{{ mount_dir }}/config.yml"
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    mode: 0644

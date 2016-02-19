@@ -1,0 +1,12 @@
+---
+- name: Start the registry
+  docker:
+    name: "{{ registry_name }}"
+    image: registry
+    state: started
+    pull: always
+    docker_api_version: "{{ api_version }}"
+    volumes:
+    - "{{ mount_dir }}:/data/docker_reg"
+    - "{{ mount_dir }}/config.yml:/data/docker_reg/config.yml"
+    env:

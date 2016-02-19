@@ -1,0 +1,7 @@
+# defaults/main.yml
+# configure-dhub.yml
+mount_dir: /data
+owner: root
+group: root
+registry_cert: none.cert
+registry_key: none.key

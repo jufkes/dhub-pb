@@ -1,0 +1,14 @@
+---
+- name: Configure docker - RHEL
+  template:
+    src: docker.j2
+    dest: /etc/sysconfig/docker
+  notify:
+    - restart docker rhel
+
+- name: Configure docker - Ubuntu
+  template:
+    src: docker.j2
+    dest: /etc/default/docker
+  notify:
+    - restart docker ubuntu

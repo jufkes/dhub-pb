@@ -1,0 +1,10 @@
+---
+- name: restart docker rhel
+  service:
+    name: docker
+    state: restarted
+
+- name: restart docker ubuntu
+  service:
+    name: docker.io
+    state: restarted
